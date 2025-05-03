@@ -239,3 +239,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 }); 
 
+// Mobile Carousel Functionality
+const track = document.querySelector('.carousel-track');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let currentIndex = 0;
+
+nextBtn.addEventListener('click', () => {
+    const items = document.querySelectorAll('.carousel-item');
+    if (currentIndex < items.length - 1) {
+        currentIndex++;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+});
